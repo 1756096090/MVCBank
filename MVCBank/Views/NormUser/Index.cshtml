@@ -1,0 +1,27 @@
+﻿@model MVCBank.Models.User
+@{
+    ViewData["Title"] = "Crear usuario";
+}
+
+<link rel="stylesheet" href="../Views/styles.css" />
+
+<h1>@ViewData["Title"]</h1>
+<p>En esta página se muestran las opciones para crear el usuario</p>
+<form method="post">
+    <div class="col-md-6">
+        <label>Email</label>
+        <input asp-for="Email" class="form-control">
+    </div>
+
+    <div class="col-5">
+        <label>Contraseña</label>
+        <input asp-for="Password" class="form-control">
+    </div>
+
+    <div class="row" style="margin-top: 1rem">
+        <div class="col-12">
+            <button type="submit" asp-action="Index" class="btn btn-outline-primary">Guardar</button>
+            <a asp-action="Index" class="btn btn-outline-primary">Regresar</a>
+        </div>
+    </div>
+</form>
