@@ -142,7 +142,7 @@ namespace MVCBank.Controllers
                     Console.WriteLine("Transferencia emitida: ");
                 }
 
-                Console.WriteLine("Transferencia realizandose...");
+                Console.WriteLine("Transferencia realizandose..." + accountReceiver.AccountAmount);
                 //await servicio_APIBAccount.Editar(accountSender);
                 bool success = await servicio_APIBAccount.Editar(accountReceiver);
                 Console.WriteLine("Transferencia realizada..." + success);
