@@ -59,7 +59,9 @@ namespace MVCBank.Controllers
             if (account != null)
             {
                 Console.WriteLine("Id Account " + account.IdAccount);
-                return View("Edit", account);
+                Transferencia transfer = new Transferencia() { Amount = 0, IdAccountSender = account.IdAccount, IdAccountReceiver = 0};
+                var response = transfer;
+                return View("Edit", transfer);
             }
             Console.WriteLine("Fallo");
             return RedirectToAction("Index");
@@ -103,14 +105,16 @@ namespace MVCBank.Controllers
 
 
         // GET: NormUserController/Edit/5
-        public async Task<ActionResult> Edit(int IdAccount)
+       public async Task<ActionResult> Edit(int IdAccount)
         {
 
             var response = await servicio_APIBAccount.Obtener(IdAccount);
             Console.WriteLine("hola" + response?.IdUser);
             if (response?.IdUser != 0)
             {
-                return View("Edit", response);
+                Transferencia transfer = new Transferencia() { Amount = 0, IdAccountSender = response.IdAccount, IdAccountReceiver = 0 };
+                
+                return View("Edit", transfer);
 
 
             }
@@ -119,22 +123,22 @@ namespace MVCBank.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(BankAccount bank)
+        public async Task<IActionResult> Edit(Transferencia bank)
         {
             if(bank != null)
             {
-                Console.WriteLine("Cantidad: " + bank.AccountAmount);
-                Console.WriteLine("Id Emisor: " + bank.IdAccount);
-                Console.WriteLine("Id Receptor: " + bank.IdUser);
+                Console.WriteLine("Cantidad: " + bank.Amount);
+                Console.WriteLine("Id Emisor: " + bank.IdAccountSender);
+                Console.WriteLine("Id Receptor: " + bank.IdAccountReceiver);
 
-                BankAccount accountSender = await servicio_APIBAccount.Obtener(bank.IdAccount);
+                BankAccount accountSender = await servicio_APIBAccount.Obtener(bank.IdAccountSender);
                 //Console.WriteLine("Comprobacion emisor: " + accountSender.IdAccount); //Emite error null reference exception
-                BankAccount accountReceiver = await servicio_APIBAccount.Obtener(bank.IdUser);
+                BankAccount accountReceiver = await servicio_APIBAccount.Obtener(bank.IdAccountReceiver);
                 Console.WriteLine("Comprobacion receptor: " + accountReceiver.IdAccount);
                 
                 if (accountReceiver != null)
                 {
-                    accountReceiver.AccountAmount = bank.AccountAmount;
+                    accountReceiver.AccountAmount = bank.Amount;
                     Console.WriteLine("Transferencia emitida: ");
                 }
 
@@ -142,8 +146,8 @@ namespace MVCBank.Controllers
                 //await servicio_APIBAccount.Editar(accountSender);
                 bool success = await servicio_APIBAccount.Editar(accountReceiver);
                 Console.WriteLine("Transferencia realizada..." + success);
-
-                return View("Details", bank.IdAccount);
+                
+                return View("Details", accountSender);
             }
             Console.WriteLine("Operacion fallida");
             return BadRequest("No se pudo realizar la accion");            

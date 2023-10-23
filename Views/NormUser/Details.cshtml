@@ -9,8 +9,8 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 <link href="~/css/site.css" rel="stylesheet">
 
-<form method="post">
-    <<div class="card" style="width: 18rem;">
+
+    <div class="card" style="width: 18rem;">
         <h2>@ViewData["Title"]</h2>
         <div class="card-body">
             <h4>Cuenta de ahorro</h4>
@@ -32,7 +32,6 @@
     </div>
 
     <div>
-        <button type="submit" asp-action="Details" asp-route-IdAccount="@Model.IdAccount" class="button button-accion">Transferencias</button>
+        <a type="button" asp-action="Edit" asp-route-IdAccount="@Model.IdAccount" class="button button-accion">Transferencias</a>
         <a asp-action="Index" asp-controller="Home" class="button cerrar-sesion">Cerrar Sesión</a>
     </div>
-</form>
