@@ -1,0 +1,43 @@
+﻿@page
+@model List<User>
+@{
+    ViewData["Title"] = "Administrar Usuarios";
+}
+
+<link href="~/css/site.css" rel="stylesheet">
+
+<h1>@ViewData["Title"]</h1>
+<main>
+    <section title="Tabla de usuarios">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID del usuario</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Teléfono</th>
+                    <th>DNI</th>
+                    <th>Rol</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.IdUser</td>
+                        <td>@user.Name</td>
+                        <td>@user.Email</td>
+                        <td>@user.DNI</td>
+                        <td>@user.Role</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+    <section title="Botones">
+        <div>
+            <a class="button button-accion">Administrar transacciones</a>
+            <a class="button cerrar-sesion">Cerrar Sesión</a>
+        </div>
+    </section>
+</main>

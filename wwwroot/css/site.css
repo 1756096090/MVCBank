@@ -1,0 +1,42 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* Estilo para los botones */
+.button {
+    position: fixed;
+    bottom: 20%; /* Ajusta la distancia desde la parte inferior */
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Estilo para el botón de Cerrar Sesión */
+.cerrar-sesion {
+    right: 2%; /* Ajusta la distancia desde la izquierda */
+    background-color: #FF0000; /* Color de fondo rojo */
+    color: #FFF; /* Texto en blanco */
+}
+
+/* Estilo para el botón de Transferencias */
+.button-accion {
+    left: 2%; /* Ajusta la distancia desde la derecha */
+    background-color: #0070C0; /* Color de fondo azul */
+    color: #FFF; /* Texto en blanco */
+}
