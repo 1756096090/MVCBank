@@ -27,8 +27,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Administrador\InfoTransferencias.cshtml" />
-    <None Include="Views\Administrador\InfoUsuarios.cshtml" />
+    <None Include="Views\Admin\Details.cshtml" />
+    <None Include="Views\Admin\InfoUsuarios.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
     <None Include="Views\NormUser\Index.cshtml" />
     <None Include="Views\Home\Transferencias.cshtml" />

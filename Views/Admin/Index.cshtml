@@ -1,0 +1,29 @@
+﻿
+@model User
+
+@{
+    ViewData["Title"] = "Panel de Administrador";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Página de Inicio - Administrador de Banco</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>@ViewData["Title"]</h1>
+        <div class="btn-group">
+            <a class="btn btn-primary active" asp-controller="Admin" asp-action="Details">Información de Usuarios</a>
+            <a class="btn btn-danger">Cerrar Sesión</a>
+        </div>
+    </div>
+
+</body>
+</html>

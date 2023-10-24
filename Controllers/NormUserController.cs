@@ -29,10 +29,17 @@ namespace MVCBank.Controllers
             var response = await servicioAPI.Autenticar(Email, Password);
                 Console.WriteLine("hola"+response?.IdUser);
             if (response?.IdUser != 0)
-            {
-                var response2 = await servicio_APIBAccount.GetIdUser((int)(response?.IdUser));
-                Console.WriteLine("Resp"+response2?.IdUser);
-                return View("Details",response2);
+            {   
+                if(response.Role.ToLower().Equals("client"))
+                {
+                    var response2 = await servicio_APIBAccount.GetIdUser((int)(response?.IdUser));
+                    Console.WriteLine("Resp" + response2?.IdUser);
+                    return View("Details", response2);
+                } else if(response.Role.ToLower().Equals("adm"))
+                {
+                    return View("~/Views/Admin/Index.cshtml", response);
+                }
+                
 
 
             }
@@ -77,10 +84,10 @@ namespace MVCBank.Controllers
         {
             user.Role = "string";
             user.IdUser = 0;
-            
+
             user.Phone = "stringstri";
             user.DNI = "string";
-            user.Name = "string";
+
             var response = await servicioAPI.Crear(user);
 
             Console.WriteLine(user.Password+"hola");
