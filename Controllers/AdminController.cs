@@ -17,43 +17,38 @@ namespace MVCBank.Controllers
 
 
         // GET: AdminController
-        public IActionResult Index()
+      
+        public IActionResult Index(User user)
         {
-            return View();
+            return View("Index", user);
         }
 
         // GET: AdminController/Details/5
 
-        public async Task<IActionResult> Details()
+        public async Task<IActionResult> Information()
         {
             List<BankAccount> bankAccounts = await servicio_APIBAccount.Lista();
             List<User> users = await servicioAPI.Lista();
             Console.WriteLine("Usuarios: " + users.Count + "\nCuentas bancarias " + bankAccounts.Count);
             ViewData["BankAccount"] = bankAccounts;
             ViewData["Users"] = users;
-            return View("Details");
+            return View("Info");
         }
 
         // GET: AdminController/Create
-        public ActionResult Create()
+        public async Task<IActionResult> DetailsUser(int IdUser)
         {
-            return View();
+            User user = await servicioAPI.Obtener(IdUser);
+
+            if(user != null)
+            {
+                return View("DetailsUser", user);
+            }
+            return BadRequest("No se pudo obtener el usuario");
         }
 
         // POST: AdminController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        
 
         // GET: AdminController/Edit/5
         /*public async Task<ActionResult> Edit(int IdUser)
@@ -70,39 +65,21 @@ namespace MVCBank.Controllers
 
 
         // POST: AdminController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        
 
         // GET: AdminController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
 
         // POST: AdminController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> Delete(int IdUser)
         {
-            try
+            User user = await servicioAPI.Obtener(IdUser);
+
+            if (user != null)
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
+                //bool resp = await servicioAPI.Eliminar(user);
                 return View();
             }
+            return BadRequest("No se pudo eliminar el usuario");
         }
     }
 }

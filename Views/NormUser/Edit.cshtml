@@ -35,7 +35,7 @@
         </div>
         <input asp-for="IdAccountSender" class="form-control" hidden/>
         <div class="btn-group" role="group" style="margin-top: 5%;">
-            <button class="btn btn-danger">Cancelar</button>
+            <button class="btn btn-danger" asp-action="Details" asp-route-IdAccount="@Model.IdAccountSender">Cancelar</button>
             <button type="submit" class="btn btn-success">Transferir</button>
         </div>
     </form>
