@@ -1,0 +1,30 @@
+﻿@model User
+
+@{
+    ViewData["Title"] = "Panel de Administrador";
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Página de Inicio - Administrador @Model.Name</title>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/style.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>@ViewData["Title"]</h1>
+        <div class="btn-group">
+            <a class="btn btn-primary active" asp-controller="Admin" asp-action="Information">Información de Usuarios</a>
+            <a class="btn btn-danger">Cerrar Sesión</a>
+        </div>
+    </div>
+
+</body>
+</html>

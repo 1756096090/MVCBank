@@ -1,0 +1,45 @@
+﻿@model User
+
+<link rel="stylesheet" href="~/css/bootstrap.min.css" />
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/style.css" rel="stylesheet" />
+
+<body>
+    <div class="card">
+        <div class="card-header">
+            Detalles del usuario
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <div class="card-text">
+                <div class="modal-body">
+                    <div class="col-sm-6">
+                        <label>Id:</label>
+                        <input class="form-control" asp-for="@Model.IdUser" readonly />
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Email:</label>
+                        <input class="form-control" asp-for="@Model.Email" readonly />
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Ingrese una contraseña:</label>
+                        <input class="form-control" type="password" asp-for="@Model.Password" readonly />
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Número de teléfono:</label>
+                        <input class="form-control" asp-for="@Model.Phone" readonly />
+                    </div>
+                    <div class="col-sm-6">
+                        <label>DNI:</label>
+                        <input class="form-control" asp-for="@Model.DNI" readonly />
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Rol:</label>
+                        <input class="form-control" asp-for="@Model.Role" readonly />
+                    </div>
+                </div>
+            </div>
+            <a class="btn btn-danger" asp-action="Information">Volver</a>
+        </div>
+    </div>
+</body>

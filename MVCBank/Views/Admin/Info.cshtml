@@ -1,0 +1,98 @@
+﻿@{
+    ViewData["Title"] = "Tablas";
+    List<BankAccount>? bankAccounts = ViewData["BankAccount"] as List<BankAccount>;
+    List<User>? users = ViewData["Users"] as List<User>;
+}
+
+<link rel="stylesheet" href="~/css/bootstrap.min.css" />
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/style.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<body>
+    <h1>@ViewData["Title"]</h1>
+    <section title="acciones">
+        <div class="btn-group" role="group">
+            <button type="button" id="btnMostrarUsuarios" class="btn btn-primary">Tabla Usuarios</button>
+            <button type="button" id="btnMostrarTransferencias" class="btn btn-primary" disabled>Tabla Transferencias</button> @*Por el momento en esta tabla se representarán las cuentas bancarias*@
+        </div>
+    </section>
+
+    <section title="TablaUsuarios">
+        <table id="tablaUsuarios" class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">DNI</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in users)
+                {
+                    <tr>
+                        <th scope="row">@user.IdUser</th>
+                        <td>@user.Name</td>
+                        <td>@user.Email</td>
+                        <td>@user.Phone</td>
+                        <td>@user.DNI</td>
+                        <td>@user.Role</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a type="button" class="btn btn-warning" title="Ver" asp-action="DetailsUser" asp-route-IdUser="@user.IdUser">Detalles</a>
+                                <a class="btn btn-danger" title="Eliminar">Eliminar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+
+    <section title="Botones">
+        <div>
+            <a asp-action="Index" asp-controller="Admin" class="btn btn-danger">Volver</a>
+        </div>
+    </section>
+</body>
+
+
+@{
+    /*
+        <section title="TablaTransferencias">
+            <table id="tablaTransferencias" style="display: none">
+                    <thead>
+                        <tr>
+                        <th>Numero de cuenta del emisor</th>
+                        <th>ID de la cuenta emisor</th>
+                        <th>Numero de cuenta del emisor</th>
+                        <th>ID de la cuenta receptor</th>
+                        <th>Monto</th>
+                    <th></th>
+                </tr>
+                </thead>
+
+                    <tbody>
+                    @foreach (var cuenta in Model)
+                        {
+                            <tr>
+                            @*<td>@cuenta.AccountNumberSender</td>*@
+                            <td>@cuenta.IdAccountSender</td>
+                            @*<td>@cuenta.AccountNumberReceiver</td>*@
+                            <td>@cuenta.IdAccountReceiver</td>
+                            <td>@cuenta.Amount</td>
+                            <td><a class="btn btn-danger">Cancelar</a></td>
+                     </tr>
+                 }
+             </tbody>
+        </table>
+        </section>
+
+        */
+}
+
+

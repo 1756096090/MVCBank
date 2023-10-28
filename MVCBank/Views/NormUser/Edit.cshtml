@@ -1,0 +1,47 @@
+﻿
+@model Transferencia
+
+@{
+    ViewData["Title"] = "Transferencias";
+}
+
+<link rel="stylesheet" href="~/css/bootstrap.min.css" />
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/style.css" rel="stylesheet" />
+
+<div Class="pt-16 px-16">
+    <h3>@ViewData["Title"]</h3>
+    
+    <form method="post" autocomplete="on">
+        <div class="d-inline pa-2">
+            <h4>Cuenta de ahorros</h4>
+            @*<label style="font-size: 16px">@Model.IdAccount</label> No se envia el Id Account*@
+        </div>
+        <div style="margin-top: 10%;">
+            <label>Monto:</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                </div>
+                <input asp-for="Amount" class="form-control" required />
+            </div>
+
+            <div class="input-group">
+                @* <label>Nombre del beneficiario:<input type="text" class="form-control" readonly /></label>*@
+                <label>Número de cuenta:</label>
+                <input asp-for="IdAccountReceiver" class="form-control" required />
+                @*<button class="btn btn-warning form-control position-absolute bottom-0 start-50" style="width: 10%;">Validar</button>*@
+            </div>
+        </div>
+        <input asp-for="IdAccountSender" class="form-control" hidden/>
+        <div class="btn-group" role="group" style="margin-top: 5%;">
+            <button class="btn btn-danger" asp-action="Details" asp-route-IdAccount="@Model.IdAccountSender">Cancelar</button>
+            <button type="submit" class="btn btn-success">Transferir</button>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+

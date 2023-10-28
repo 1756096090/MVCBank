@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\AdmUser\**" />
+    <Compile Remove="Views\BankAccount\**" />
+    <Content Remove="Views\AdmUser\**" />
+    <Content Remove="Views\BankAccount\**" />
+    <EmbeddedResource Remove="Views\AdmUser\**" />
+    <EmbeddedResource Remove="Views\BankAccount\**" />
+    <None Remove="Views\AdmUser\**" />
+    <None Remove="Views\BankAccount\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Controllers\HomeController1.cs" />
     <Compile Remove="Controllers\RegisterController.cs" />
   </ItemGroup>
@@ -16,8 +27,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\AdmUser\" />
-    <Folder Include="Views\BankAccount\" />
+    <None Include="Views\Admin\Info.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\NormUser\Index.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

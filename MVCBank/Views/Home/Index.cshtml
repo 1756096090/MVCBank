@@ -1,8 +1,180 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Tu Banca Web";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@{
+    Dictionary<string, string> history = new Dictionary<string, string>
+    {
+        {"Nuestro Viaje: De los Inicios a la Actualidad", "Hace décadas, cuando la revolución digital comenzaba a tomar forma, " +
+        "un pequeño grupo de visionarios se dio cuenta de que el mundo financiero estaba a punto de cambiar para siempre. Estos pioneros," +
+        " con una visión audaz y un deseo profundo de hacer que la banca fuera más accesible y conveniente, se unieron para fundar lo que hoy" +
+        " conocemos como Tu Banca Web."},
+        {"Inicios Revolucionarios", "En el año 1995, Tu Banca Web dio sus primeros pasos en la banca en línea. Fue un momento emocionante," +
+        " ya que los servicios bancarios en línea eran una novedad y la idea de administrar tus finanzas desde la comodidad de tu hogar era" +
+        " revolucionaria. Nuestros fundadores se embarcaron en esta misión con pasión y determinación, desarrollando un sitio web pionero y" + 
+        " seguro que permitía a las personas verificar saldos, transferir fondos y pagar facturas con solo unos clics."},
+        {"Crecimiento y Desarrollo", "A medida que el mundo se volvía más digital, Tu Banca Web creció rápidamente. Innovamos constantemente para" +
+        " satisfacer las necesidades cambiantes de nuestros clientes. En 2007, lanzamos nuestra aplicación móvil, lo que permitió a los usuarios" +
+        " llevar su banco en el bolsillo. Con el tiempo, agregamos servicios como inversiones en línea, préstamos y más, siempre enfocándonos en" +
+        " hacer que la banca fuera más accesible y conveniente para todos."},
+        {"Eventos Relevantes", "A lo largo de nuestra historia, hemos superado desafíos juntos. Durante la crisis financiera de 2008, Tu Banca Web" +
+        " se mantuvo sólido y seguro, brindando apoyo a nuestros clientes en momentos de incertidumbre. Hemos seguido invirtiendo en tecnología de"+
+        " vanguardia para garantizar la seguridad de las transacciones y la privacidad de los datos de nuestros clientes."},
+        {"Apoyo de Inversionistas", "El crecimiento de Tu Banca Web ha sido posible gracias al apoyo continuo de nuestros inversionistas." +
+        " A lo largo de los años, hemos forjado relaciones sólidas con inversores comprometidos que comparten nuestra visión de hacer que la banca" +
+        " en línea sea accesible para todos. Su confianza en nuestra visión y estrategia nos ha permitido crecer y servir a más personas en todo el " +
+        "mundo."},
+        {"La Actualidad", "Hoy, Tu Banca Web es uno de los bancos en línea más grandes y confiables del mundo. Atendemos a millones de clientes en" +
+        " todo el mundo y ofrecemos una gama completa de servicios financieros en línea. Nuestra dedicación a la innovación, la seguridad y la" +
+        " satisfacción del cliente continúa siendo el motor de nuestro éxito. En el futuro, seguiremos buscando formas de mejorar y simplificar " +
+        "la vida financiera de nuestros clientes, y esperamos que te unas a nosotros en este emocionante viaje hacia un futuro financiero más" +
+        " brillante y conveniente. Gracias por ser parte de la historia de Tu Banca Web. Tu confianza en nosotros es lo que nos impulsa a seguir" +
+        " adelante en esta apasionante era de la banca en línea."}
+    };
+}
+
+<link rel="stylesheet" href="~/css/bootstrap.min.css"/>
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/style.css" rel="stylesheet" />
+
+<body>
+    <section>
+        <h3>¡Bienvenido a Tu Banca Web!</h3>
+        <h5>El mejor banco de la zona</h5
+    </section>
+
+    <section title="Carrusel Servicios">
+        <div id="carouselExampleCaptions" class="carousel slide">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="~/ImgCarrusel1.jpg" class="d-block img-fluid w-100">
+                <h5 style="color: white;">Financia tu negocio</h5>
+                <p>Brindamos apoyo financiero a largo plazo a pequeños y medianos emprendedores.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="~/ImgCarrusel2.jpg" class="d-block img-fluid w-100">
+              <div class="carousel-caption d-none d-md-block">
+                <h5 style="color: white;">Abre tu cuenta de ahorro</h5>
+                <p>Te apoyamos en tus sueños brindándote un entorno seguro para guardar tu dinero a largo plazo.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="~/ImgCarrusel3.jpg" class="d-block img-fluid w-100">
+              <div class="carousel-caption d-none d-md-block">
+                <h5 style="color: white;">Invierte con nosotros</h5>
+                <p>Disponemos de los mejores asesores para que labres tu camino hacia el mundo de las inversiones. ¡Qué esperas!</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
+        </div>
+    </section>
+
+    <section title="opiniones" style="margin: 5%;">
+        <div>
+            <h1 class="card-title">Experiencias de Nuestros Clientes</h1>
+            <div class="card w-100">
+                <h3 class="card-subtitle" style="margin: 2%;">María Pérez</h3>
+                <p class="card-text" style="margin: 2%;">Gracias a Tu Banca Web, pude realizar transferencias rápidas y seguras a mis seres queridos en el extranjero.
+                    ¡La mejor experiencia bancaria!</p>
+            </div>
+            <div class="card w-100">
+                <h3 class="card-subtitle" style="margin: 2%;">Juan Torres</h3>
+                <p class="card-text" style="margin: 2%;">Con Tu Banca Web, administrar mis finanzas nunca ha sido tan fácil. Puedo consultar mi saldo, pagar facturas y más,
+                    todo desde la comodidad de mi hogar.</p>
+            </div>
+        </div>
+    </section>
+    <section title="Historia" style="margin:5%;">
+        <h2>Historia</h2>
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Nuestro Viaje: De los Inicios a la Actualidad
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                @history["Nuestro Viaje: De los Inicios a la Actualidad"]
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Inicios Revolucionarios
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                  @history["Inicios Revolucionarios"]
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Crecimiento y Desarrollo
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                  @history["Crecimiento y Desarrollo"]
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Eventos Relevantes
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                  @history["Eventos Relevantes"]
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifth" aria-expanded="false" aria-controls="collapseFifth">
+                Apoyo de Inversionistas
+              </button>
+            </h2>
+            <div id="collapseFifth" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                  @history["Apoyo de Inversionistas"]
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSixth" aria-expanded="false" aria-controls="collapseSixth">
+                La Actualidad
+              </button>
+            </h2>
+            <div id="collapseSixth" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                  @history["La Actualidad"]
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+</body>

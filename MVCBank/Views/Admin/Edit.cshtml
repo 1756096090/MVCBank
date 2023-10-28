@@ -1,25 +1,25 @@
 ﻿
 @model User
 @{
-    ViewData["Title"] = "Crear usuario";
+    ViewData["Title"] = "Modifique su usuario";
 }
 
 <link rel="stylesheet" href="~/css/bootstrap.min.css" />
 <link href="~/css/site.css" rel="stylesheet" />
 <link href="~/css/style.css" rel="stylesheet" />
 
-<title>Registro de usuario</title>
+<title>Configuración de usuario --- Administrador</title>
 
 <h2>@ViewData["Title"]</h2>
 <div>
     <form method="post" autocomplete="on" class="mb-3">
         <div class="col-md-6">
             <label>Nombre de usuario:</label>
-            <input asp-for="Name" type="text"  class="form-control" required />
+            <input asp-for="Name" class="form-control" required />
         </div>
         <div class="col-md-6">   
             <label>Email:</label>
-            <input asp-for="Email" type="email" class="form-control" required />
+            <input asp-for="Email" class="form-control" required />
         </div>
         <div class="col-md-6">
             <label>Ingrese una contraseña:</label>
@@ -27,23 +27,20 @@
         </div>
         <div class="col-md-6">
             <label>Número de teléfono:</label>
-            <input asp-for="Phone" type="text" class="form-control" required />
+            <input asp-for="Phone" class="form-control" required />
         </div>
         <div class="col-md-6">
             <label>DNI:</label>
-            <input asp-for="DNI" type="text" class="form-control" required />
+            <input asp-for="DNI" class="form-control" required />
         </div>
         <div class="col-md-6">
             <label>Rol:</label>
-            <select class="form-select" asp-for="Role">
-                <option selected>Cliente</option>
-                <option value="1">Administrador</option>
-            </select>
+            <input asp-for="Role" class="form-control" required />
         </div>
 
-        <div style="margin-top: 0.5rem;">
-            <a asp-action="Index" asp-controller="Home" class="btn btn-danger">Cancelar</a>
-            <button asp-action="Create" type="submit" class="btn btn-success">Registrarse</button>
+        <div>
+            <a asp-action="Index" asp-controller="Admin" class="btn btn-danger">Cancelar</a>
+            <button type="submit" class="btn btn-success">Registrarse</button>
         </div>
     </form>
 

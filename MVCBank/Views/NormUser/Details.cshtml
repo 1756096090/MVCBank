@@ -1,44 +1,36 @@
-﻿@model BankAccount
+﻿
+@model BankAccount
+
 @{
-    ViewData["Title"] = "Mostrar Cuenta";
+    ViewData["Title"] = "Estado de cuenta";
 }
 
-<link rel="stylesheet" href="~/Views/styles.css" />
+<link rel="stylesheet" href="~/css/bootstrap.min.css" />
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/style.css" rel="stylesheet" />
 
-<h1>@ViewData["Title"]</h1>
-
-<div class="row">
-    <div class="col-md-6">
-        <div class="form-group">
-            <label>ID Account</label>
-            <input type="text" class="form-control" value="@Model.IdAccount" readonly>
+    <div class="card" style="width: 18rem;">
+        <h2>@ViewData["Title"]</h2>
+        <div class="card-body">
+            <h4>Cuenta de ahorro</h4>
+            <table class="table table-borderless">
+                <tr>
+                    <td>Número de cuenta:</td>
+                    <td></td>
+                    <td></td>
+                    <td>@Model.AccountNumber</td>
+                </tr>
+                <tr>
+                    <td>Saldo disponible:</td>
+                    <td></td>
+                    <td></td>
+                    <td>$@Model.AccountAmount</td>
+                </tr>
+            </table>
         </div>
     </div>
-</div>
 
-<div class="row">
-    <div class="col-md-6">
-        <div class="form-group">
-            <label>ID User</label
-            <input type="text" class="form-control" value="@Model.IdUser" readonly>
-        </div>
+    <div>
+        <a type="button" asp-action="Edit" asp-route-IdAccount="@Model.IdAccount" class="button button-accion">Transferencias</a>
+        <a asp-action="Index" asp-controller="Home" class="button cerrar-sesion">Cerrar Sesión</a>
     </div>
-</div>
-
-<div class="row">
-    <div class="col-md-6">
-        <div class="form-group">
-            <label>Account Number</label>
-            <input type="text" class="form-control" value="@Model.AccountNumber" readonly>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-6">
-        <div class="form-group">
-            <label>Account Amount</label>
-            <input type="text" class="form-control" value="@Model.AccountAmount" readonly>
-        </div>
-    </div>
-</div>
